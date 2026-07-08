@@ -1,0 +1,60 @@
+[project]
+name = "edgerag"
+version = "0.1.0"
+description = "On-device RAG using Qdrant Edge, Qwen3 embeddings, and Gemma4"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "edgeparse>=0.2.5",
+    "fastapi>=0.139.0",
+    "huggingface-hub>=1.22.0",
+    "litert-lm-api>=0.13.1",
+    "pydantic>=2.13.4",
+    "pyyaml>=6.0.3",
+    "qdrant-edge-py>=0.7.2",
+    "sentence-transformers>=5.6.0",
+    "streamlit>=1.59.0",
+    "uvicorn>=0.51.0",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+    "pytest-cov>=6.0",
+    "ruff>=0.15.20",
+]
+
+[project.scripts]
+download = "download_models:main"
+index-dense = "index_dense:main"
+index-hybrid = "index_hybrid:main"
+index-quantized = "index_quantized:main"
+rag-dense = "rag_dense:main"
+rag-quantized = "rag_quantized:main"
+ui = "ui:main"
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+markers = [
+    "e2e: end-to-end tests requiring real models (deselect with '-m not e2e')",
+]
+
+[tool.coverage.run]
+source = ["src"]
+omit = [
+    "src/ui.py",
+    "src/index_*.py",
+    "src/rag_*.py",
+    "src/download_models.py",
+]
+
+[tool.coverage.report]
+fail_under = 70
+show_missing = true

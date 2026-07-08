@@ -1,0 +1,10 @@
+edgeparse
+fastapi
+huggingface-hub
+litert-lm-api
+pydantic
+pyyaml
+qdrant-edge-py
+sentence-transformers
+streamlit
+uvicorn

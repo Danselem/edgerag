@@ -1,0 +1,19 @@
+embedding:
+  repo_id: Qwen/Qwen3-Embedding-0.6B
+  model_name: models/qwen3_embed
+  model_dim: 1024
+
+llm:
+  repo_id: litert-community/gemma-4-E2B-it-litert-lm
+  filename: gemma-4-E2B-it.litertlm
+  model_path: models/gemma4/gemma-4-E2B-it.litertlm
+
+document:
+  document_path: pdf/mid-year-outlook-2026.pdf
+  chunk_size: 1024
+  overlap: 0
+
+shard:
+  dense_path: shards/dense
+  hybrid_path: shards/hybrid
+  quantized_path: shards/quantized
