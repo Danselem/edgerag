@@ -7,3 +7,6 @@ models/
 shards/
 *.pdf
 !pdf/.gitkeep
+/htmlcov
+.pytest_cache/
+.coverage
